@@ -1,0 +1,23 @@
+<html>
+<head>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.flip.js"></script>
+	<link rel="stylesheet" type="text/css" href="flip.css">
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("body").flip({
+				frontPicture: "cards/star.png",
+				backPicture: "cards/back.png"
+			});
+
+			$(".card-container").click(function(){
+				$(this).flip();
+			});
+		});
+	</script>
+	<title></title>
+</head>
+<body>
+
+</body>
+</html>
