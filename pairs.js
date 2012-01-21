@@ -12,22 +12,13 @@
 
 			var addCardsToDom = function(pictures){
 				var i;
-				for(i = 0; i < pictures.length; i = i + 1){
-					$("#playground").append("<img id='"+ pictures[i] + "' class='card back' src='cards/back.png'>");
+				for(i = 0; i < pictures.length; i += 1){
+					$("#playground").flip({
+						frontPicture: "cards/back.png",
+						backPicture: pictures[i]
+					});
 				}
 			}
-
-			var flip = function($card){
-				if($card.hasClass("back")){
-					$card.removeClass("back");
-					$card.addClass("front");
-					$card.attr("src", $card.attr("id"));
-				}else{
-					$card.addClass("back");
-					$card.removeClass("front");
-					$card.attr("src", "cards/back.png");
-				}
-			};
 
 			var selectedCards = 0;
 			var points = 0;
@@ -43,20 +34,18 @@
 			$(".card").click(function(){
 				var $card = $(this);
 				var $selected = $(".selected");
-				if($card.hasClass("back")){
+				if(! $card.hasClass("flipped")){
 					if(selectedCards < 2){
-						flip($card);
+						$card.flip();
 						$card.addClass("selected");
 						selectedCards += 1;
-					}else{
-						flip($selected);
-						$selected.removeClass("selected");
-						selectedCards = 0;
 					}
 				}
 
 				if(selectedCards === 2){
-					if($(".selected:last").attr("id") === $(".selected:first").attr("id")){
+					var firstImg = $(".selected:first").children(".back").children().attr("src");
+					var lastImg =  $(".selected:last").children(".back").children().attr("src");
+					if(firstImg === lastImg){
 						$selected = $(".selected");
 						$selected.removeClass("selected");
 						$selected.addClass("oog");
@@ -66,7 +55,7 @@
 							$selected = $(".selected");
 							$selected.removeClass("selected");
 							selectedCards = 0;
-							flip($selected);
+							$selected.flip();
 						}, 1000);
 					}
 

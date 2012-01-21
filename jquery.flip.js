@@ -24,10 +24,10 @@
       return this.append(html);
     },
     flip : function( ) {
-      if(!this.hasClass("card-container")){
+      if(!this.hasClass("card")){
         return this;
       }
-      var $card = this.children(".card");
+      var $card = this;
       if($card.hasClass("flipped")){
         $card.removeClass("flipped");
       }else{

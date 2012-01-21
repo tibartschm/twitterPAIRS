@@ -1,9 +1,4 @@
-.back{
+.card{
 	border: solid black medium;
-}
-.oog{
-	border: solid blue medium;
-}
-.selected{
-	border: solid red medium;
+	margin: 10px;
 }
