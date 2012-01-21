@@ -46,9 +46,17 @@
 					var firstImg = $(".selected:first").children(".back").children().attr("src");
 					var lastImg =  $(".selected:last").children(".back").children().attr("src");
 					if(firstImg === lastImg){
+						$("#points").text(++points);
 						$selected = $(".selected");
 						$selected.removeClass("selected");
-						$selected.addClass("oog");
+						setTimeout(function(){
+							$selected.parent().fadeOut(function(){
+								$(this).remove();
+								if($(".card").length === 0){
+									$("#playground").text("WIN!!!");
+								}
+							});
+						}, 1000);
 						selectedCards = 0;
 					}else{
 						setTimeout(function(){
@@ -60,11 +68,5 @@
 					}
 
 				}
-
-				if($(".oog").length === pictures.length){
-					$("#playground").text("WIN!!!");
-				}
-
-				console.log("Selected Cards: ", selectedCards);
 			});
 		});

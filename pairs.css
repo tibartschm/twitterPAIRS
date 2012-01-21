@@ -1,4 +1,13 @@
-.card{
+.card-container {
+	float: left;
+	margin:  5px;
+}
+.card {
 	border: solid black medium;
-	margin: 10px;
+}
+.oog {
+	-webkit-transition-property: -webkit-transform;
+	-webkit-transition-timing-function: ease;
+	-webkit-transition-duration: 2s;
+	-webkit-transform: translate(100px, 100px);
 }
