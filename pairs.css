@@ -7,10 +7,3 @@
 	position: relative;
 	border: 7px double black;
 }
-
-.oog {
-	-webkit-transition-property: -webkit-transform;
-	-webkit-transition-timing-function: ease;
-	-webkit-transition-duration: 2s;
-	-webkit-transform: translate(100px, 100px);
-}

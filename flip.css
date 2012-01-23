@@ -1,7 +1,7 @@
 .card-container {
 	position: relative;
-	width: 100px;
-	height: 100px;
+	width: 73px;
+	height: 73px;
 	z-index: 1;
 	-webkit-perspective: 1000;
 }

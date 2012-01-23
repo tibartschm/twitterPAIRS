@@ -23,15 +23,18 @@
 			var selectedCards = 0;
 			var points = 0;
 
-			var pictures = ['cards/star.png', 'cards/circle.png', 'cards/rect.png'];
-			pictures = pictures.concat(pictures);
-			pictures = shuffle(pictures);
+			$("#submit").click(function(){
+				var name = $("#following").attr("value");
+				twitter.getFollowerImgUrls(name, function(data){
+					var cards = data;
+					cards = cards.concat(cards);
+					cards = shuffle(cards);
+					addCardsToDom(cards);
+					$(".card").click(cardClickHandler);
+				});
+			});
 
-			addCardsToDom(pictures);
-			
-
-
-			$(".card").click(function(){
+			var cardClickHandler = function(){
 				var $card = $(this);
 				var $selected = $(".selected");
 				if(! $card.hasClass("flipped")){
@@ -68,5 +71,5 @@
 					}
 
 				}
-			});
+			};
 		});
