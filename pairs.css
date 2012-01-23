@@ -1,10 +1,13 @@
 .card-container {
 	float: left;
-	margin:  5px;
+	margin:  15px;
 }
 .card {
 	border: solid black medium;
+	position: relative;
+	border: 7px double black;
 }
+
 .oog {
 	-webkit-transition-property: -webkit-transform;
 	-webkit-transition-timing-function: ease;
